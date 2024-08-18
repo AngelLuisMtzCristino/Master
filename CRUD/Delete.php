@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Búsqueda</title>
 
 </head>
-<body>
-    <div class="container">
-        <h2>Buscar</h2>
-        <form method="post">
-            <input type="text" name="curp" placeholder="Ingrese la curp" required>
-            <button type="submit">borrar</button><br><br>
-        </form>
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") { 
 
-                // Configuración de la conexión a la base de datos
+<body>
+    <div>
+        <?php
+        include_once 'interfaz.php';
+        ?>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Buscar</h2>
+                <form method="post">
+                    <input type="text" name="curp" class="form-control" placeholder="Ingrese la curp" required>
+                    <button type="submit">borrar</button><br><br>
+                </form>
+            </div>
+        </div>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            // Configuración de la conexión a la base de datos
             $server = "localhost";
             $user = "root";
             $pass = "";
             $DB = "crud";
-            
-                // Crear conexión
+
+            // Crear conexión
             $conn = new mysqli($server, $user, $pass, $DB);
-            
-                // Verificar conexión
+
+            // Verificar conexión
             if ($conn->connect_error) {
                 die("Conexión fallida: " . $conn->connect_error);
             }
@@ -53,4 +64,5 @@
 
     </div>
 </body>
+
 </html>

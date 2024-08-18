@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario de Búsqueda</title>
 
 </head>
-<body>
-    <div class="container">
-        <h2>Buscar</h2>
-        <form method="post">
-            <input type="text" name="curp" placeholder="Ingrese la curp" required>
-            <button type="submit">Buscar</button><br><br>
-        </form>
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") { 
 
-                // Configuración de la conexión a la base de datos
+<body>
+    <div>
+        <?php
+        include_once 'interfaz.php';
+        ?>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2>Buscar</h2>
+                <form method="post">
+                    <input type="text" name="curp" class="form-control" placeholder="Ingrese la curp" required>
+                    <button type="submit">Buscar</button><br><br>
+                </form>
+            </div>
+        </div>
+        <?php
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+            // Configuración de la conexión a la base de datos
             $server = "localhost";
             $user = "root";
             $pass = "";
             $DB = "crud";
-            
-                // Crear conexión
+
+            // Crear conexión
             $conn = new mysqli($server, $user, $pass, $DB);
-            
-                // Verificar conexión
+
+            // Verificar conexión
             if ($conn->connect_error) {
                 die("Conexión fallida: " . $conn->connect_error);
             }
@@ -46,8 +57,7 @@
                 echo '<input type="text" value="' . $row["ap_pat"] . '" placeholder="ap_pat" readonly ><br>';
                 echo '<label>Apellido Materno</label>';
                 echo '<input type="text" value="' . $row["ap_mat"] . '" placeholder="ap_mat" readonly ><br>';
-            } 
-            else {
+            } else {
                 echo '<p>Curp no encontrada</p>';
             }
 
@@ -59,4 +69,5 @@
 
     </div>
 </body>
+
 </html>

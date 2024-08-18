@@ -1,0 +1,31 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('../img/hexagonos-colores-pastel_3840x2400.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+button {
+    background-color: #00ff4cb3;
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.5s;
+}
+
+button:hover {
+    background-color: #bcede2;
+}
+
+button:focus {
+    outline: none;
+}
