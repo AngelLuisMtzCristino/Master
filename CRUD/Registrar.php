@@ -3,64 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/style_registrar.css">
     <title>Registrar</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('img/hexagonos-colores-pastel_3840x2400.jpg') no-repeat center center fixed;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-        }
-
-        #registrar {
-            background: url('img/hexagonos-colores-pastel_3840x2400.jpg') no-repeat center center fixed;
-            background-size: cover;
-            padding: 20px 40px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-
-        label {
-            display: block;
-            color: #555;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-
-        input, input, select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 15px;
-            border: 1px solid;
-            border-radius: 5px;
-            box-sizing: border-box;
-            font-size: 14px;
-        }
-
-        button {
-            background-color: #00ff4cb3;
-            color: rgb(0, 0, 0);
-            width: 100%;
-            padding: 10px;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.5s ;
-        }
-
-        button:hover {
-            background-color: #00b389;
-        }
-
-    </style>
 </head>
 <body>
     <div id="registrar">
