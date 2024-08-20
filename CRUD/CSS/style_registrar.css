@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    background: url('../img/hexagonos-colores-pastel_3840x2400.jpg') no-repeat center center fixed;
+    background: url('../img/pintura-liquida-rosa-y-morada_3840x2400.jpg') no-repeat center center fixed;
     background-size: cover;
     margin: 0;
     padding: 0;
@@ -11,7 +11,7 @@ body {
 }
 
 #registrar {
-    background: url('../img/hexagonos-colores-pastel_3840x2400.jpg') no-repeat center center fixed;
+    background: url('../img/hojas-color-rosa_2560x1440.jpg') no-repeat center center fixed;
     background-size: cover;
     padding: 20px 40px;
     border-radius: 10px;
@@ -41,7 +41,7 @@ button {
     color: rgb(0, 0, 0);
     width: 100%;
     padding: 10px;
-    color: white;
+    color: rgb(0, 0, 0);
     border: none;
     border-radius: 5px;
     cursor: pointer;

@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Formulario de Búsqueda</title>
 
 </head>
@@ -23,7 +24,10 @@
                     <button type="submit">Buscar</button><br><br>
                 </form>
             </div>
+            
         </div>
+        <button onclick="location.href='index.php'">Volver al inicio</button>
+
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 

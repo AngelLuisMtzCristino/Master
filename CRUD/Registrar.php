@@ -40,7 +40,7 @@
         </form>
         <br><br>
 
-        <button onclick="location.href='index.html'">Volver al inicio</button>
+        <button onclick="location.href='index.php'">Volver al inicio</button>
 
     </div>
     

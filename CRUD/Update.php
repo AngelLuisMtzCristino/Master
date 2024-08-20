@@ -24,6 +24,8 @@
                 </form>
             </div>
         </div>
+        <button onclick="location.href='index.php'">Volver al inicio</button>
+
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['buscar'])) {
             $server = "localhost";

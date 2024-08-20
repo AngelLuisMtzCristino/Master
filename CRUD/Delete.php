@@ -20,10 +20,13 @@
                 <h2>Buscar</h2>
                 <form method="post">
                     <input type="text" name="curp" class="form-control" placeholder="Ingrese la curp" required>
-                    <button type="submit">borrar</button><br><br>
+                    <button type="submit">Borrar</button><br><br>
                 </form>
             </div>
+            
         </div>
+        <button onclick="location.href='index.php'">Volver al inicio</button>
+
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
