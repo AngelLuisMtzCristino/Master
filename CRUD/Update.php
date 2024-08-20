@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="CSS/style_registrar.css">
     <title>Actualizar</title>
 </head>
 
@@ -85,21 +86,22 @@
             $pass = "";
             $DB = "crud";
 
-            $conexion = mysqli_connect($servidor, $user, $pass, $DB);
+            $conexion = mysqli_connect($server, $user, $pass, $DB);
             if ($conexion->connect_error) {
-                die("no se logro la conexion" . $connect_error);
+                die("no se logro la conexion" . $conexion->connect_error);
             }
 
             $curp = $_POST['curp'];
             $nombre = $_POST['nombre'];
             $ap_pat = $_POST['ap_pat'];
             $ap_mat = $_POST['ap_mat'];
-            $fecha_n = $_POST['fecha_nac'];
+            $fecha_nac = $_POST['fecha_nac'];
             $escolaridad = $_POST['escolaridad'];
             $domicilio = $_POST['domicilio'];
+
             $sql = "UPDATE empleado SET nombre=?, ap_pat=?, ap_mat=?, fecha_nac=?, escolaridad=?, domicilio=? WHERE curp=?";
             $stmt = $conexion->prepare($sql);
-            $stmt->bind_param("sssssss", $nombre, $ap_pat, $ap_mat, $fecha_n, $escolaridad, $domicilio, $curp);
+            $stmt->bind_param("sssssss", $nombre, $ap_pat, $ap_mat, $fecha_nac, $escolaridad, $domicilio, $curp);
 
             if ($stmt->execute()) {
                 echo "registro actualizado";
