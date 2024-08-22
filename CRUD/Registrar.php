@@ -11,22 +11,22 @@
         <h1>Registrar</h1>
         <form  method="post">
             <label >Curp:</label>
-            <input name="curp" type="text"><br>
+            <input name="curp" type="text" required><br>
 
             <label >Nombre:</label>
-            <input name="nombre" type="text"><br>
+            <input name="nombre" type="text" required><br>
 
             <label >Apellido Paterno</label>
-            <input name="ap_pat" type="text"><br>
+            <input name="ap_pat" type="text" required><br>
 
             <label >Apellido Materno</label>
-            <input name="ap_mat" type="text"><br>
+            <input name="ap_mat" type="text" required><br>
 
             <label >Fecha de nacimiento</label>
-            <input name="fecha_nac" type="date"><br>
+            <input name="fecha_nac" type="date" max="<?php echo date('Y-m-d'); ?>" required><br>
 
             <label >Escolaridad</label>
-            <select name="escolaridad" >
+            <select name="escolaridad" required>
                 <option value="sin_escolaridad">Sin Escolaridad</option>
                 <option value="basica">Basica</option>
                 <option value="media_superior">Media Superior</option>
@@ -34,7 +34,7 @@
             </select><br>
 
             <label >Domicilio</label>
-            <input name="domicilio" type="text"><br><br><br>
+            <input name="domicilio" type="text" required><br><br><br>
 
             <button type="submit">Registrarse</button>
         </form>
@@ -70,18 +70,30 @@
         $escolaridad=isset($_POST['escolaridad'])?$_POST['escolaridad'] : '';
         $domicilio=isset($_POST['domicilio'])?$_POST['domicilio']:'';
 
-        $insert=$conexion->prepare("INSERT INTO empleado (curp,nombre,ap_pat,ap_mat,fecha_nac,escolaridad,domicilio)
-        VALUES('$curp','$nombre','$ap_pat','$ap_mat','$fecha_nac','$escolaridad','$domicilio')");
-        //$insert->bind_param('sssssss', $curp, $nombre, $ap_pat, $ap_mat, $fecha_nac, $escolaridad, $domicilio);
+        $curp_existente=$conexion->prepare("SELECT curp FROM empleado WHERE curp = ?");
+        $curp_existente->bind_param("s", $curp);
+        $curp_existente->execute();
+        $curp_existente->store_result();
 
-        if ($insert->execute()) {
-            // code...
-
-            echo "Datos fueron insertados";
-        }   
-        else {
-            echo "Error de insercion".$insert->error;
+        if($curp_existente->num_rows>0 ){
+            echo "La curp ya existe, inserte otra";
         }
+        else{
+            $insert=$conexion->prepare("INSERT INTO empleado (curp,nombre,ap_pat,ap_mat,fecha_nac,escolaridad,domicilio)
+            VALUES('$curp','$nombre','$ap_pat','$ap_mat','$fecha_nac','$escolaridad','$domicilio')");
+            //$insert->bind_param('sssssss', $curp, $nombre, $ap_pat, $ap_mat, $fecha_nac, $escolaridad, $domicilio);
+    
+            if ($insert->execute()) {
+                // code...
+    
+                echo "Datos fueron insertados";
+            }   
+            else {
+                echo "Error de insercion".$insert->error;
+            }
+        }
+
+
 
     }
 
